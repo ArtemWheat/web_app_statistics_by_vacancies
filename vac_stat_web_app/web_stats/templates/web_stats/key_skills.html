@@ -1,0 +1,10 @@
+{% extends 'web_stats/index.html' %}
+
+{% block title %}{{ data4.title }}{% endblock %}
+
+{% block content %}
+{% if data4 %}
+    <h3>{{ data4.title }}</h3>
+    <img src="{{ data4.key_skills_img.url }}" class="img-fluid">
+{% endif %}
+{% endblock %}

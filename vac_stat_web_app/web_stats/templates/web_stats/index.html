@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <header class="header shadow">
+        <div class="flex header-content">
+            <a class="header-logo-text" href="/">Dora & MaybeBabe</a>
+            <nav class="flex nav">
+                <ul class="list-reset flex">
+                    <li class="nav-list-item">
+                        <a href="{% url 'home' %}">Главная</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="{% url 'demand' %}">Востребованность</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="{% url 'geography' %}">География</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="{% url 'key_skills' %}">Навыки</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="{% url 'vacancies' %}">Вакансии</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main-cont">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+
+
+
+    <footer class="flex footer">
+        <div>
+            <p class="footer-title">Автор</p>
+            <p>Пшеничников <br> Артём Сергеевич</p>
+        </div>
+        <div>
+            <p class="footer-title right">Группа</p>
+            <p class="right">РИ-210940</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

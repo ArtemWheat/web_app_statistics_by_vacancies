@@ -1,0 +1,36 @@
+{% extends 'web_stats/index.html' %}
+
+{% block title %}{{ data2.title }}{% endblock %}
+
+{% block content %}
+{% if data2 %}
+    <h3>{{ data2.title }}</h3>
+    <img src="{{ data2.slr_by_cities.url }}" class="img-fluid">
+    <img src="{{ data2.count_vac_by_cities.url }}" class="img-fluid">
+{% endif %}
+
+{% if table2 %}
+<table class="brd table1">
+{% for el in table2 %}
+<tr>
+    {% for key, value in el.items %}
+    <td>{{ value }}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if table3 %}
+<table class="brd table1">
+{% for el in table3 %}
+<tr>
+    {% for key, value in el.items %}
+    <td>{{ value }}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

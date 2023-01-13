@@ -1,0 +1,33 @@
+{% extends 'web_stats/index.html' %}
+
+{% block title %}{{ data.title }}{% endblock %}
+
+{% block content %}
+{% if data %}
+
+            <h1 class="main-title">{{ data.title }}</h1>
+            <div class="main-article">
+                <h2 class="main-article-title">{{ data.heading1 }}</h2>
+                <div class="flex main-article-content">
+                    <p class="main-article-text" style="margin-right: 60px;">
+                        {{ data.description1 | safe }}
+                    </p>
+                    <img src="{{ data.image.url }}" alt="Иллюстрация к статье">
+                </div>
+            </div>
+            <div class="main-article">
+                <h2 class="main-article-title">{{ data.heading2 }}</h2>
+
+                <p class="main-article-text">
+                    {{ data.description2 | safe }}
+                </p>
+            </div>
+            <div class="main-article">
+                <h2 class="main-article-title">{{ data.heading3 }}</h2>
+
+                <p class="main-article-text">
+                    {{ data.description3 | safe }}
+                </p>
+            </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'web_stats/index.html' %}
+
+{% block title %}Вакансии{% endblock %}
+
+{% block content %}
+<table class="brd table1">
+{% for el in data3 %}
+<tr>
+    <td>{{ el.name }}</td>
+    <td>{{ el.description }}}</td>
+    <td>{{ el.key_skills }}</td>
+    <td>{{ el.employer }}</td>
+    <td>{{ el.salary }}</td>
+    <td>{{ el.area }}</td>
+    <td>{{ el.published_at }}</td>
+    <td>{{ el.alternate_url }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

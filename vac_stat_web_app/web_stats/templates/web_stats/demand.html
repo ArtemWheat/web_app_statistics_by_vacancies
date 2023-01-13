@@ -1,0 +1,53 @@
+{% extends 'web_stats/index.html' %}
+
+{% block title %}{{ data1.title }}{% endblock %}
+
+{% block content %}
+{% if data1 %}
+    <div class="main-article">
+        <h2 class="main-article-title">{{ data1.title  }}</h2>
+
+        <p class="main-article-text">
+            {{ data1.description | safe }}
+        </p>
+    </div>
+    <div class="main-article">
+        <p class="main-article-text">
+            {{ data1.description_1 | safe }}
+        </p>
+    </div>
+    <img src="{{ data1.slr_by_year.url }}" class="img1">
+    <div class="main-article">
+        <p class="main-article-text">
+            {{ data1.description_2 | safe }}
+        </p>
+    </div>
+    <img src="{{ data1.count_vac_by_year.url }}" class="img1">
+
+{% endif %}
+{% if table1 %}
+<div class="main-article">
+    <p class="main-article-text">
+        {{ data1.description_3 | safe }}
+    </p>
+</div>
+
+<div class="flex" style="justify-content: center;">
+    <table class="brd table1">
+        <tr>
+            {% for key in titles %}
+            <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+
+{% for el in table1 %}
+<tr>
+    {% for key, value in el.items %}
+    <td>{{ value }}</td>
+    {% endfor %}
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endif %}
+{% endblock %}
