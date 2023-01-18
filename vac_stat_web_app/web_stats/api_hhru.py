@@ -43,10 +43,10 @@ class DataVacanciesFromHH:
         description = ' '.join(re.sub(re.compile('<.*?>'), '', resp['description'])
                                .strip()
                                .split())
-        description = description[:100] + '...' if len(description) >= 100 else description
+        description = description[:500] + '...' if len(description) >= 100 else description
         result_list.append({'name': resp['name'],
                             'description': description,
-                            'key_skills': list(map(lambda x: x['name'], resp['key_skills'])),
+                            'key_skills': ', '.join(map(lambda x: x['name'], resp['key_skills'])),
                             'employer': resp['employer']['name'],
                             'salary': f"{resp['salary']['from']} - {resp['salary']['to']} {resp['salary']['currency']}",
                             'area': resp['area']['name'],

@@ -3,18 +3,48 @@
 {% block title %}Вакансии{% endblock %}
 
 {% block content %}
-<table class="brd table1">
-{% for el in data3 %}
-<tr>
-    <td>{{ el.name }}</td>
-    <td>{{ el.description }}}</td>
-    <td>{{ el.key_skills }}</td>
-    <td>{{ el.employer }}</td>
-    <td>{{ el.salary }}</td>
-    <td>{{ el.area }}</td>
-    <td>{{ el.published_at }}</td>
-    <td>{{ el.alternate_url }}</td>
-</tr>
-{% endfor %}
-</table>
+
+<div class="flex form" style="margin-bottom: 20px;">
+    <div class="flex div-input">
+        <form class="flex" action="{% url 'vacancies' %}" method="">
+            <Label class="main-article-text">Выберите дату для поиска вакансий:</Label>
+            <input type="date" name="date" id="date">
+            <button class="bth-reset bth-date" style="color: black;">Показать</button>
+        </form>
+    </div>
+</div>
+
+{% if data3|length > 0 %}
+
+<p class="main-article-text">Искомые вакансии:</p><br>
+
+<ul class="list-reset vac-list flex-column">
+    {% for el in data3 %}
+            <li class="items flex-column">
+                <a href="{{ el.alternate_url }}" class="flex-column a-item">
+                    <div class="flex card-up card-title">
+                        <p class="name">{{ el.name }}</p>
+                        <p>{{ el.employer }}</p>
+                    </div>
+                    <div class="card-block">
+                        <p class="card-block-title card-title">Описание:</p>
+                        <p class="card-text">L{{ el.description }}</p>
+                    </div>
+                    <div class="card-block">
+                        <p class="card-block-title card-title">Навыки:</p>
+                        <p class="card-text">{{ el.key_skills }}</p>
+                    </div>
+                    <div class="flex card-bottom card-title">
+                        <p>{{ el.area }}</p>
+                        <p>{{ el.salary }}</p>
+                        <p>{{ el.published_at }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+{% else %}
+<p class="main-article-text">Ничего не найдено</p>
+{% endif %}
+
 {% endblock %}

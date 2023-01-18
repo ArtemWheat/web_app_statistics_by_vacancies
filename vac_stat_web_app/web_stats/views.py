@@ -37,5 +37,9 @@ def key_skills(request):
 
 
 def vacancies(request):
-    data = DataVacanciesFromHH().get_data_vacancies('C#', '2022-12-12', 10)
+    date = ''
+    data = {}
+    if request.GET != {}:
+        date = request.GET['date']
+        data = data = DataVacanciesFromHH().get_data_vacancies('C#', date, 10)
     return render(request, 'web_stats/vacancies.html', {'data3': data})

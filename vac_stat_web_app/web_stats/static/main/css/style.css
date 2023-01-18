@@ -198,3 +198,35 @@ table td {
     margin:auto;
 }
 
+.items {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.items:hover{
+    background-color:#efeff2;
+}
+
+.card-bottom, .card-up {
+    justify-content: space-between;
+}
+
+.card-bottom{
+    margin-top: auto;
+}
+
+.card-block, .card-up  {
+    margin-bottom: 40px;
+}
+
+.card-block-title{
+    margin-bottom: 10px;
+}
+
+
+.card-title {
+    font-weight: 600;
+}
+
