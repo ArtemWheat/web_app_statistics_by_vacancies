@@ -5,6 +5,7 @@
 {% block content %}
 {% if data4 %}
     <h3>{{ data4.title }}</h3>
+    <p class="main-article-text">{{ data4.description | safe }}</p>
     <img src="{{ data4.key_skills_img.url }}" class="img-fluid">
 {% endif %}
 {% endblock %}

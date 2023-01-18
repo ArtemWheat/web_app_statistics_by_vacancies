@@ -21,10 +21,14 @@ def demand(request):
 def geography(request):
     data = list(GeographyPageEls.objects.filter(draft=False))[0]
     table2 = get_list_dicts_from_csv(data.slr_table.file.name)
+    titles2 = list(table2[0].keys())
     table3 = get_list_dicts_from_csv(data.count_vac_table.file.name)
+    titles3 = list(table3[0].keys())
     return render(request, 'web_stats/geography.html', {'data2': data,
                                                         'table2': table2,
-                                                        'table3': table3})
+                                                        'table3': table3,
+                                                        'titles2': titles2,
+                                                        'titles3': titles3})
 
 
 def key_skills(request):
