@@ -1,2 +1,2 @@
 # web_app_statistics_by_vacancies
-This is an informational site dedicated to information and statistics about C# developers
+Это информационный сайт, посвященный информации и статистике о разработчиках C#, написанный с ипользованием Django
