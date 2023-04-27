@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 from .api_hhru import DataVacanciesFromHH
 from .models import MainPageEls, DemandPageEls, GeographyPageEls, KeySkillsPageEls
@@ -41,5 +43,7 @@ def vacancies(request):
     data = {}
     if request.GET != {}:
         date = request.GET['date']
-        data = data = DataVacanciesFromHH().get_data_vacancies('C#', date, 10)
-    return render(request, 'web_stats/vacancies.html', {'data3': data})
+        data = DataVacanciesFromHH().get_data_vacancies('C#', date, 10)
+    date_now = datetime.datetime.date(datetime.datetime.now()).strftime("%Y-%m-%d")
+    return render(request, 'web_stats/vacancies.html', {'data3': data,
+                                                        'date_now': date_now})

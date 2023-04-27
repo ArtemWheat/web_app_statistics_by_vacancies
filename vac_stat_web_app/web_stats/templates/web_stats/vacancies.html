@@ -8,7 +8,7 @@
     <div class="flex div-input">
         <form class="flex" action="{% url 'vacancies' %}" method="">
             <Label class="main-article-text">Выберите дату для поиска вакансий:</Label>
-            <input type="date" name="date" id="date">
+            <input type="date" name="date" value="{{ date_now }}" id="date">
             <button class="bth-reset bth-date" style="color: black;">Показать</button>
         </form>
     </div>
